@@ -14,57 +14,60 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        // User::factory(5)->create();
+        
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
+        // // \App\Models\User::factory()->create([
+        // //     'name' => 'Test User',
+        // //     'email' => 'test@example.com',
+        // // ]);
+
+        // // User::create([
+        // //     'name' => 'Ai Dina Agustin',
+        // //     'email' => 'aidinaagustin@gmail.com',
+        // //     'password' => bcrypt('testuser')
+        // // ]);
+        // // User::create([
+        // //     'name' => 'Dindin',
+        // //     'email' => 'dina@gmail.com',
+        // //     'password' => bcrypt('1234')
+        // // ]);
+
+        // Category::create([
+        //     'name' => 'Web Programming',
+        //     'slug' => 'web-programming'
+        // ]);
+        // Category::create([
+        //     'name' => 'Personal',
+        //     'slug' => 'personal'
         // ]);
 
-        User::create([
-            'name' => 'Ai Dina Agustin',
-            'email' => 'aidinaagustin@gmail.com',
-            'password' => bcrypt('testuser')
-        ]);
-        User::create([
-            'name' => 'Dindin',
-            'email' => 'dina@gmail.com',
-            'password' => bcrypt('1234')
-        ]);
 
-        Category::create([
-            'name' => 'Web Programming',
-            'slug' => 'web-programming'
-        ]);
-        Category::create([
-            'name' => 'Personal',
-            'slug' => 'personal'
-        ]);
-
-        Post::create([
-            'title' => 'Judul Pertama',
-            'slug' => 'judul-pertama',
-            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
-            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
-            'category_id' => 1,
-            'user_id' => 1
-        ]);
-        Post::create([
-            'title' => 'Judul Kedua',
-            'slug' => 'judul-kedua',
-            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
-            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
-            'category_id' => 1,
-            'user_id' => 2
-        ]);
-        Post::create([
-            'title' => 'Judul Ketiga',
-            'slug' => 'judul-ketiga',
-            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
-            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
-            'category_id' => 2,
-            'user_id' => 1
-        ]);
+        Post::factory(5)->create();
+        // Post::create([
+        //     'title' => 'Judul Pertama',
+        //     'slug' => 'judul-pertama',
+        //     'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+        //     'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+        //     'category_id' => 1,
+        //     'user_id' => 1
+        // ]);
+        // Post::create([
+        //     'title' => 'Judul Kedua',
+        //     'slug' => 'judul-kedua',
+        //     'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+        //     'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+        //     'category_id' => 1,
+        //     'user_id' => 2
+        // ]);
+        // Post::create([
+        //     'title' => 'Judul Ketiga',
+        //     'slug' => 'judul-ketiga',
+        //     'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+        //     'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+        //     'category_id' => 2,
+        //     'user_id' => 1
+        // ]);
 
     }
 }

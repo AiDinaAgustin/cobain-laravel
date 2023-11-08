@@ -12,7 +12,9 @@
         </h2>
         {!! $post->body !!}
     </article>
+    
     @endforeach
+
 
 @endsection
 

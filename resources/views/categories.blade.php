@@ -12,7 +12,8 @@
             </h2>
         </li>
     </ul>
+    
     @endforeach
-
+    
 @endsection
 
