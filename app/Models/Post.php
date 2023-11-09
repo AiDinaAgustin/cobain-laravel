@@ -15,10 +15,11 @@ class Post extends Model
     protected $with = ['category','user']; //ini untuk mengambil data category dan author secara otomatis
 
     public function scopeFilter($query, array $filters){ //ini untuk membuat scope filter yang bisa digunakan di controller
-        if(isset($filters['search']) ? $filters['search'] : false){
-            return $query->where('title','like','%'.$filters['search'].'%')//mengambil data dari url dan mencari data yang sama dengan title yang ada di database
-                    ->orWhere('body','like','%'.$filters['search'].'%'); //mengambil data dari url dan mencari data yang sama dengan body yang ada di database
-        }
+
+        $query->when($filters['search'] ?? false, function($query,$search){ //mengambil data dari url dan mencari data yang sama dengan title yang ada di database menggunakan when dan ternary operator ?? false yang artinya jika tidak ada maka false dan jika ada maka true dan $search adalah variabel yang menampung data dari url yang akan dicari di database 
+            return $query->where('title','like','%'.$search.'%') //mengambil data dari url dan mencari data yang sama dengan title yang ada di database 
+                    ->orWhere('body','like','%'.$search.'%'); //mengambil data dari url dan mencari data yang sama dengan body yang ada di database
+        });
     }
 
     //cara menghubungkan model Post dengan model Category
