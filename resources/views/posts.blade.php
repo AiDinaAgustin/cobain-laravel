@@ -12,7 +12,8 @@
       {{-- untuk mengambil index 0 atau postingan terakhir menggunakan [0]--}}
     <p>
         <small class="text-body-secondary">
-        By : <a href=" {{ $posts[0]->user ? '/authors/'.$posts[0]->user->username : '#' }}" class="text-decoration-none">{{ $posts[0]->user->name ?? 'None' }}</a> in <a href="/categories/{{ $posts[0]->category->slug }}" class="text-decoration-none">{{ $posts[0]->category->name }}</a> {{ $posts[0]->created_at->diffForHumans() }}
+        By : <a href=" {{ $posts[0]->user ? '/authors/'.$posts[0]->user->username : '#' }}" class="text-decoration-none">{{ $posts[0]->user->name ?? 'None' }}</a>
+         in <a href="/categories/{{ $posts[0]->category->slug }}" class="text-decoration-none">{{ $posts[0]->category->name }}</a> {{ $posts[0]->created_at->diffForHumans() }}
         {{-- diffForHumans digunakan untuk menampilkan waktu yang sudah berlalu dari waktu postingan dibuat biar gampang dibaca oleh manusia --}}
         </small>
     </p>
@@ -30,9 +31,11 @@
             @foreach ($posts->skip(1) as $post)
             <div class="col-md-4 mb-3">
                 <div class="card">
+                    <div class="position-absolute px-3 py-2 text-white" style="background-color: rgba(0,0,0,0.7)">
+                        <a href="/categories/{{ $post->category->slug }}" class="text-decoration-none text-white">{{ $post->category->name }}</a></div>
                     <img src="https://source.unsplash.com/500x400?{{ $post->category->name }}" class="card-img-top" alt="{{ $post->category->name }}">
                     <div class="card-body">
-                      <h5 class="card-title"><a href="/posts/{{ $post->slug}}" class="text-decoration-none">{{ $post->title}}</a></h5>
+                      <h5 class="card-title"><a href="/posts/{{ $post->slug}}" class="text-decoration-none text-dark">{{ $post->title}}</a></h5>
                       <p>
                         <small class="text-body-secondary">
                         By : <a href=" {{ $post->user ? '/authors/'.$post->user->username : '#' }}" class="text-decoration-none">{{ $post->user->name ?? 'None' }}</a> {{ $post->created_at->diffForHumans() }}
@@ -47,19 +50,6 @@
             @endforeach
         </div>
     </div>
-     
-    @foreach ($posts->skip(1) as $post)
-    <article class="mb-5 border-bottom pb-4">
-        
-        <h2>
-            <a href="/posts/{{ $post->slug}}" class="text-decoration-none">{{ $post->title}}</a>
-        </h2>
-        <p>By : <a href=" {{ $post->user ? '/authors/'.$post->user->username : '#' }}" class="text-decoration-none">{{ $post->user->name ?? 'None' }}</a> in <a href="/categories/{{ $post->category->slug }}" class="text-decoration-none">{{ $post->category->name }}</a></p>
-        {!! $post->excerpt !!}
-
-        <p><a href="/posts/{{ $post->slug}}" class="text-decoration-none">Read more...</a></p>
-    </article>
-    @endforeach
 
 @endsection
 
