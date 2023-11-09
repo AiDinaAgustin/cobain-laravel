@@ -40,7 +40,7 @@
       {{-- untuk mengambil index 0 atau postingan terakhir menggunakan [0]--}}
     <p>
         <small class="text-body-secondary">
-        By : <a href=" {{ $posts[0]->user ? '/posts?user='.$posts[0]->user->username : '#' }}" class="text-decoration-none">{{ $posts[0]->user->name ?? 'None' }}</a>
+        By : <a href="/posts?user={{ $posts[0]->user->username }}" class="text-decoration-none">{{ $posts[0]->user->name }}</a>
          in <a href="/posts?category={{ $posts[0]->category->slug }}" class="text-decoration-none">{{ $posts[0]->category->name }}</a> {{ $posts[0]->created_at->diffForHumans() }}
         {{-- diffForHumans digunakan untuk menampilkan waktu yang sudah berlalu dari waktu postingan dibuat biar gampang dibaca oleh manusia --}}
         </small>

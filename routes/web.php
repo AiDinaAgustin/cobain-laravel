@@ -50,19 +50,19 @@ Route::get('books/{book:slug}', [BookController::class,'show']);
 
 Route::get('/categories', [CategoryController::class, 'index']);
 
-Route::get('categories/{category:slug}', function(Category $category){
-    return view('posts',[
-        "title" => "Post By Category : $category->name",
-        "active" => "categories",
-        "posts" => $category->posts->load('category', 'user')
-    ]);
-});
+// Route::get('categories/{category:slug}', function(Category $category){
+//     return view('posts',[
+//         "title" => "Post By Category : $category->name",
+//         "active" => "categories",
+//         "posts" => $category->posts->load('category', 'user')
+//     ]);
+// });
 
-Route::get('/authors/{user:username}', function (User $user) {
-    return view('posts', [
-        'title' => "Post By Author : $user->name",
-        'active' => 'posts',
-        'posts' => $user->posts->load('category', 'user')
-    ]);
-});
+// Route::get('/authors/{user:username}', function (User $user) {
+//     return view('posts', [
+//         'title' => "Post By Author : $user->name",
+//         'active' => 'posts',
+//         'posts' => $user->posts->load('category', 'user')
+//     ]);
+// });
 
