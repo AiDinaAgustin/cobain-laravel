@@ -11,6 +11,7 @@ class BookController extends Controller
     {
         return view('books', [
             "title" => "Books",
+            "active" => "books", //untuk menandakan bahwa halaman ini yang sedang aktif
             "books" => Book::all()
         ]);
     }
@@ -19,6 +20,7 @@ class BookController extends Controller
     {
         return view('book', [
             "title" => "Single Book",
+            "active" => "books",
             "book" => $book
         ]);
     }

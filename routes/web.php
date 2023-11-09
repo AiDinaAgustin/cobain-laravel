@@ -24,13 +24,15 @@ use App\Http\Controllers\CategoryController;
 
 Route::get('/', function () {
     return view('home',[
-        "title" => "Home"
+        "title" => "Home",
+        "active" => "home"
     ]);
 });
 
 Route::get('/about', function () {
     return view('about', [
         "title" => "About",
+        "active" => "about",
         "name" => "Ai Dina Agustin",
         "email" => "aidinaagustin2@gmail.com",
         "image" => "img/dina.png"
@@ -51,6 +53,7 @@ Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('categories/{category:slug}', function(Category $category){
     return view('posts',[
         "title" => "Post By Category : $category->name",
+        "active" => "categories",
         "posts" => $category->posts->load('category', 'user')
     ]);
 });

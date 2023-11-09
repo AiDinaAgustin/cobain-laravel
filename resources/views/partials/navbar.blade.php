@@ -7,16 +7,19 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link {{ ($title === "Home") ? 'active' : '' }}" href="/">Home</a>
+            <a class="nav-link {{ ($active === "home") ? 'active' : '' }}" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ ($title === "About") ? 'active' : '' }}" href="/about">About</a>
+            <a class="nav-link {{ ($active === "about") ? 'active' : '' }}" href="/about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ ($title === "Posts") ? 'active' : '' }}" href="/posts" >Blog</a>
+            <a class="nav-link {{ ($active === "posts") ? 'active' : '' }}" href="/posts" >Blog</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ ($title === "Books") ? 'active' : '' }}" href="/books" >Buku</a>
+            <a class="nav-link {{ ($title === "books") ? 'active' : '' }}" href="/books" >Buku</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ ($title === "categories") ? 'active' : '' }}" href="/categories" >Kategori</a>
           </li>
         </ul>
       </div>
