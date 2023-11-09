@@ -28,7 +28,7 @@ class PostController extends Controller
         return view('posts',[
             "title" => "All Posts" . $title,
             "active" => "posts",
-            "posts" => Post::latest()->filter(request(['search', 'category' , 'user']))->get() //filter(request(['search'])) ini untuk memanggil scope filter yang ada di model Post 
+            "posts" => Post::latest()->filter(request(['search', 'category' , 'user']))->paginate(7) //filter(request(['search'])) ini untuk memanggil scope filter yang ada di model Post 
         ]);
     }
 
