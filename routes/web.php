@@ -9,8 +9,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CategoryController;
-
-
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,3 +70,7 @@ Route::get('/categories', [CategoryController::class, 'index']);
 // login
 route::get('/login', [LoginController::class, 'index']); 
 
+// register
+Route::get('/register', [RegisterController::class,'index']);
+
+Route::post('/register', [RegisterController::class,'store']);
