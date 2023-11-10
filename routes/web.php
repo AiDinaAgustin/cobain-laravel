@@ -69,14 +69,18 @@ Route::get('/categories', [CategoryController::class, 'index']);
 
 
 // login
-route::get('/login', [LoginController::class, 'index']); 
+route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest'); 
 route::post('/login', [LoginController::class, 'authenticate']); 
+
+//logout
+Route::post('/logout', [LoginController::class,'logout']);
 
 
 // register
-Route::get('/register', [RegisterController::class,'index']);
+Route::get('/register', [RegisterController::class,'index'])->middleware('guest');
 
 Route::post('/register', [RegisterController::class,'store']);
 
 
-Route::get('/dashboard', [DashboardController::class,'index']);
+Route::get('/dashboard', [DashboardController::class,'index'])->middleware('auth');
+

@@ -22,11 +22,34 @@
             <a class="nav-link {{ ($title === "categories") ? 'active' : '' }}" href="/categories" >Kategori</a>
           </li>
         </ul>
-        <ul class="navbar-nav ms-auto">
+
+        {{-- disini kita akan mengecek seseorang sudah login apa belum, jika sudah menggunakan auth akan ditampilkan apa
+              dan jika belum login menggunakan guest akan ditampilkan apa --}}
+              <ul class="navbar-nav ms-auto">
+          @auth
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Welcome back, {{ auth()->user()->name }} 
+              {{-- disini kita akan menampilkan nama user yang login dengan menggunakan function auth dan mengambil name dari tabel user--}}
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-window-reverse"></i>My Dashborad</a></li>
+              <li><hr class="dropdown-divider"></li>
+
+              <li>
+                <form action="/logout" method="post">
+                  @csrf
+                  <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i>Logout</button>
+                </form>
+            </ul>
+          </li>
+          @else
           <li class="navbar-item">
             <a href="/login" class="nav-link {{ ($title === "login") ? 'active' : '' }}"><i class="bi bi-box-arrow-in-right"></i>Login</a>
           </li>
+          @endauth
         </ul>
+
       </div>
     </div>
   </nav>

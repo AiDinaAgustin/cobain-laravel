@@ -31,4 +31,14 @@ class LoginController extends Controller
 
         return back()->with('loginError', 'Login failed!');
     }
+
+    public function logout(Request $request)
+    {
+        //logout digunakan untuk logout
+        auth()->logout(); //menghapus session yang ada di server 
+        $request->session()->invalidate(); //menghapus session yang ada di browser dan di server 
+        $request->session()->regenerateToken(); //membuat token baru untuk session yang baru 
+
+        return redirect('/');
+    }
 }
