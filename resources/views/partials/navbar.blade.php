@@ -25,7 +25,7 @@
 
         {{-- disini kita akan mengecek seseorang sudah login apa belum, jika sudah menggunakan auth akan ditampilkan apa
               dan jika belum login menggunakan guest akan ditampilkan apa --}}
-              <ul class="navbar-nav ms-auto">
+          <ul class="navbar-nav ms-auto">
           @auth
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -41,6 +41,7 @@
                   @csrf
                   <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i>Logout</button>
                 </form>
+              </li>
             </ul>
           </li>
           @else
