@@ -44,4 +44,9 @@ class Post extends Model
     {
         return $this->belongsTo(User::class); //artinya satu post dimiliki oleh satu user
     }
+
+    public function getRouteKeyName(): string
+{
+    return 'slug';
+} 
 }

@@ -1,5 +1,6 @@
 <?php
 
+
 use App\Models\Book;
 use App\Models\Post;
 use App\Models\User;
@@ -9,7 +10,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\RegisterController;
 
 /*
@@ -88,4 +89,7 @@ Route::get('/dashboard', function(){
         "active" => "dashboard"
     ]);
 })->middleware('auth');
+
+
+Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
 
